@@ -1,34 +1,45 @@
-import React from 'react';
+import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
+import React,{Component} from 'react';
 import {View,Text} from 'react-native';
-import createReactClass from 'create-react-class';
-import RadioForm,{RadioButton,RadioButtonInput,RadioButtonLabel} from 'react-native-simple-radio-button';
 
-const Radio =({onPress})=>{
 
-    var Radio= createReactClass({
-        getInitialState: function() {
-            return {
-                value: 0,
-            }
+ const RadioButtonProject =({label,onPress,radio_props})=>{
+
+
+
+        return (
+            <View>
+                <Text style={styles.textStyle} >
+                    {label}
+                </Text>
+                <RadioForm
+                    radio_props={radio_props}
+                    style={styles.RadioButtonStyle}
+                    initial={0}
+                    onPress={onPress}
+                    formHorizontal={true}
+                    buttonColor={'#2196f3'}
+                    animation={false}
+                >
+
+                    <RadioButtonLabel
+                        labelHorizontal={true}
+                        labelStyle={{fontSize: 20, color: '#2ecc71'}}
+                        labelWrapStyle={{}}
+                    />
+                </RadioForm>
+            </View>
+        );
+
+}
+const styles =
+    {
+        RadioButtonStyle:{
+            paddingLeft:80
         },
-        render(){
-            return (
-
-                <View>
-
-                    <RadioForm
-                        radio_props={[{label:'male',value:0},{label:'female',value:1}]}
-                        initial={0}
-                        onPress={onPress}
-                    >
-
-                    </RadioForm>
-
-                </View>
-        )
+        textStyle:{
+            fontSize:18,
 
         }
-
-})}
-
-export {Radio}
+    };
+export {RadioButtonProject}

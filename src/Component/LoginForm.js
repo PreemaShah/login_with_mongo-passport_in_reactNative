@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+
 import {TextInput,Text,View,Alert} from 'react-native';
 //import {fetch} from 'react-native-fetch';
 import {Card,CardItem,Button,Input,Spinner,Header} from "./Common";
@@ -18,11 +19,16 @@ class LoginForm extends Component{
                 email:this.state.email,
                 password:this.state.password
             })
+        }).then((response)=>response.json()).then((responseJson)=>{
+            Alert.alert(responseJson);
+        }).catch((error)=>{
+            console.error(error);
         });
     }
 
     render() {
         return (
+
             <View>
                 <Header headerText='LogIn'/>
                 <Card>
@@ -50,6 +56,7 @@ class LoginForm extends Component{
                     </CardItem>
                 </Card>
             </View>
+
         )
     }
 
