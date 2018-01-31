@@ -7,7 +7,7 @@ class App extends Component
   render(){
       return(
           <View>
-           <Registration/>
+           <LoginForm/>
           </View>
       )
   }
